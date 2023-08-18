@@ -3,6 +3,7 @@ import React from 'react'
 import { FlatList } from 'react-native'
 import CategoryItem from './CategoryItem'
 import { TouchableOpacity } from 'react-native'
+import SelectedCategoryList from '../Home/SelectedCategoryList'
 import Colors from '../../Shared/Colors'
 
 export default function CategoryList() {
@@ -46,13 +47,22 @@ export default function CategoryList() {
         },
     ]
 
+    const [activeCategory, setActiveCategory] = React.useState("Food");
+    const [activeCategoryImage, setActiveCategoryImage] = React.useState(categoryList[0].icon);
+
   return (
     <View style={{marginTop: 20, backgroundColor: Colors.WHITE}}>
       <Text style={{fontSize: 20}}>Select Top Categories</Text>
       <FlatList
         data = {categoryList}
         renderItem={({item}) => (
-            <TouchableOpacity onPress={() => console.log(item.name)}>
+            <TouchableOpacity
+            onPress={() =>{
+                setActiveCategory(item.name);
+                setActiveCategoryImage(item.icon);
+                // console.log(item.name);
+                // console.log(activeCategory);
+            }}>
                 <CategoryItem category={item}/>
             </TouchableOpacity>
         )}
@@ -60,6 +70,7 @@ export default function CategoryList() {
         showsHorizontalScrollIndicator={false}
         style={{marginTop: 5}}
       />
+    <SelectedCategoryList categoryName={activeCategory} categoryImage={activeCategoryImage}/>
     </View>
   )
 }

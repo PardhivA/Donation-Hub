@@ -4,6 +4,8 @@ import Header from '../Components/Home/Header'
 import GoogleMapView from '../Components/Home/GoogleMapView'
 import CategoryList from '../Components/Home/CategoryList'
 import Colors from '../Shared/Colors'
+import { SafeAreaView } from 'react-native';
+import { ScrollView } from 'react-native';
 
 export default function Home() {
   
@@ -19,7 +21,7 @@ export default function Home() {
         [55.7558, 37.6176],
         [-22.9068, -43.1729],
         [19.4326, -99.1332],
-        [52.5200, 13.4050], 
+        [52.5200, 13.4050],
         [37.9838, 23.7275],
         [25.2769, 55.2962],
         [30.0444, 31.2357],
@@ -31,10 +33,14 @@ export default function Home() {
       ];
 
   return (
+    <SafeAreaView style = {{ flex:1, backgroundColor: Colors.WHITE}}>
+      <ScrollView showsVerticalScrollIndicator={false}>
     <View style={{padding:20, backgroundColor: Colors.WHITE}}>
       <Header/>
-      <GoogleMapView donarList={donarList}/>
+      <GoogleMapView/>
       <CategoryList />
     </View>
+    </ScrollView>
+    </SafeAreaView>
   )
 }

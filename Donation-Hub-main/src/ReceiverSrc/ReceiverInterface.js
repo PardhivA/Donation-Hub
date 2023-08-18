@@ -66,7 +66,7 @@ export default function ReceiverInterface(){
         component = {Registration}
         options={{
           headerLeft : ()=> null 
-        }}``
+        }}
         />
 
 

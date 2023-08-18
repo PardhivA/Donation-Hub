@@ -27,6 +27,9 @@ function App(){
 
 <Stack.Screen name = "ReceiverInterface"
         component={ReceiverInterface}
+        options={{
+          headerLeft : ()=> null 
+        }}
          />
 
         </Stack.Navigator>
